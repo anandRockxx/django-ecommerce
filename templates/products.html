@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <main>
+      <div class="page-loader">
+        <div class="loader">Loading...</div>
+      </div>
+      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">Titan</a>
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="main">
+        <section class="module bg-dark-60 shop-page-header" data-background='static/assets/images/shop/product-page-bg.jpg' >
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                <h2 class="module-title font-alt">Shop Products</h2>
+                <div class="module-subtitle font-serif">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="module-small">
+          <div class="container">
+            <form class="row">
+              <div class="col-sm-4 mb-sm-20">
+                <select class="form-control">
+                  <option selected="selected">Default Sorting</option>
+                  <option>Popular</option>
+                  <option>Latest</option>
+                  <option>Average Price</option>
+                  <option>High Price</option>
+                  <option>Low Price</option>
+                </select>
+              </div>
+              <div class="col-sm-2 mb-sm-20">
+                <select class="form-control">
+                  <option selected="selected">Woman</option>
+                  <option>Man</option>
+                </select>
+              </div>
+              <div class="col-sm-3 mb-sm-20">
+                <select class="form-control">
+                  <option selected="selected">All</option>
+                  <option>Coats</option>
+                  <option>Jackets</option>
+                  <option>Dresses</option>
+                  <option>Jumpsuits</option>
+                  <option>Tops</option>
+                  <option>Trousers</option>
+                </select>
+              </div>
+              <div class="col-sm-3">
+                <button class="btn btn-block btn-round btn-g" type="submit">Apply</button>
+              </div>
+            </form>
+          </div>
+        </section>
+        <hr class="divider-w">
+        <section class="module-small">
+          <div class="container">
+            <div class="row multi-columns-row">
+
+            {% for item in products %}
+            
+
+              <div class="col-sm-6 col-md-4 col-lg-4">
+                <div class="shop-item">
+                  <div class="shop-item-image"><img src={{ item.product_preview }} alt={{ item.title }}/>
+                    <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                  </div>
+                  <h4 class="shop-item-title font-alt"><a href={{ item.get_absolute_url }}>{{ item.title }}</a></h4>Rs. {{ item.price }}
+                </div>
+              </div>
+
+
+            {% endfor %}
+
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="pagination font-alt"><a href="#"><i class="fa fa-angle-left"></i></a><a class="active" href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#"><i class="fa fa-angle-right"></i></a></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr class="divider-d">
+        <footer class="footer bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="copyright font-alt">&copy; 2017&nbsp;<a href="index.html">TitaN</a>, All Rights Reserved</p>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+    </main>
+  
+
+
+{% endblock content %}
